@@ -82,6 +82,19 @@ namespace InventoryForm03Lab2
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
+            // Validate category selection first so we don't lose user input on error
+            if (string.IsNullOrWhiteSpace(cbCategory.Text))
+            {
+                MessageBox.Show(
+                    "Please select a product category.",
+                    "Validation Error",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Warning
+                );
+
+                return;
+            }
+
             try
             {
                 _ProductName = Product_Name(txtProductName.Text);
@@ -110,6 +123,13 @@ namespace InventoryForm03Lab2
 
                 gridViewProductList.DataSource = null;
                 gridViewProductList.DataSource = showProductList;
+
+                txtProductName.Clear();
+                txtQuantity.Clear();
+                txtSellPrice.Clear();
+                richTxtDescription.Clear();
+
+                cbCategory.SelectedIndex = -1;
             }
             catch (StringFormatException ex)
             {
@@ -137,15 +157,6 @@ namespace InventoryForm03Lab2
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Error
                 );
-            }
-            finally
-            {
-                txtProductName.Clear();
-                txtQuantity.Clear();
-                txtSellPrice.Clear();
-                richTxtDescription.Clear();
-
-                cbCategory.SelectedIndex = -1;
             }
         }
     }

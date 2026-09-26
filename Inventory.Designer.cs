@@ -137,6 +137,8 @@
             cbCategory.Name = "cbCategory";
             cbCategory.Size = new Size(226, 23);
             cbCategory.TabIndex = 4;
+            // Make the combo box non-editable so users must select from the list
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
             // 
             // dtPickerMfgDate
             // 
