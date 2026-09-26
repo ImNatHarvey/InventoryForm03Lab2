@@ -22,6 +22,7 @@ namespace InventoryForm03Lab2
             InitializeComponent();
 
             showProductList = new BindingSource();
+            cbCategory.DropDownStyle = ComboBoxStyle.DropDownList;
         }
 
         private void Inventory_Load(object sender, EventArgs e)
