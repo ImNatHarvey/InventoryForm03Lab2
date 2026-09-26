@@ -82,7 +82,6 @@ namespace InventoryForm03Lab2
 
         private void btnAddProduct_Click(object sender, EventArgs e)
         {
-            // Validate category selection first so we don't lose user input on error
             if (string.IsNullOrWhiteSpace(cbCategory.Text))
             {
                 MessageBox.Show(
